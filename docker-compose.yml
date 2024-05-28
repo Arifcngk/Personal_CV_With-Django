@@ -6,8 +6,11 @@ services:
       dockerfile: Dockerfile
     env_file:
       - website_cv/docker.env
+    volumes:
+      - .:/srv/app
+      - static-data:/srv/app/static
     ports:
-      - "0.0.0.0:8000:8000"
+      - "8000:8000"
     command: python manage.py runserver 0.0.0.0:8000
 
 volumes:
