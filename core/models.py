@@ -1,9 +1,11 @@
 from django.db import models
 
+
 # Create your models here.
 
 class GeneralSetting(models.Model):
-    name = models.CharField(max_length=254, default='', blank=True, verbose_name='Name ', help_text='This is val. of the Setting')
+    name = models.CharField(max_length=254, default='', blank=True, verbose_name='Name ',
+                            help_text='This is val. of the Setting')
     description = models.CharField(max_length=254, default='', blank=True, verbose_name='Description ')
     parameters = models.CharField(max_length=254, default='', blank=True, verbose_name='Parameter ')
 
@@ -23,6 +25,6 @@ class GeneralSetting(models.Model):
 
 
 class Meta:
-    verbose_name='General Setting'
-    verbose_name='General Settings'
-    ordering = ('name', )
+    verbose_name = 'General Setting'
+    verbose_name = 'General Settings'
+    ordering = ('name',)
