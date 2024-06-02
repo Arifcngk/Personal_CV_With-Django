@@ -24,7 +24,31 @@ class GeneralSetting(models.Model):
         return f'General Settings: {self.name}'
 
 
-class Meta:
-    verbose_name = 'General Setting'
-    verbose_name = 'General Settings'
-    ordering = ('name',)
+    class Meta:
+       verbose_name = 'General Setting'
+       verbose_name = 'General Settings'
+       ordering = ('name',)
+
+
+class ImageSetting(models.Model):
+   name = models.CharField(max_length=254, default='', blank=True, verbose_name='Name ',)
+   description = models.CharField(max_length=254, default='', blank=True, verbose_name='Description ',)
+   file = models.FileField(default='', blank=True, verbose_name='Image ',upload_to='images/')
+   updated_data = models.DateTimeField(
+       auto_now=True,
+       blank=True,
+       verbose_name='Updated Date '
+   )
+   created_data = models.DateTimeField(
+       auto_now_add=True,
+       blank=True,
+       verbose_name='Created Date '
+   )
+
+   def __str__(self):
+       return f'Image Settings: {self.name}'
+
+   class Meta:
+       verbose_name = 'Image Setting'
+       verbose_name = 'Image Settings'
+       ordering = ('name',)
