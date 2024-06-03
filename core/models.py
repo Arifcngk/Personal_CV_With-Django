@@ -80,3 +80,19 @@ class Experience(AbstractModel):
         verbose_name = 'Experience Setting'
         verbose_name = 'Experience Settings'
         ordering = ('start_date',)
+
+
+
+class Education(AbstractModel):
+    education_name = models.CharField(max_length=254, default='', blank=True, verbose_name='Education Name ',)
+    education_lvl = models.CharField(max_length=254, default='', blank=True, verbose_name='Education Level ',)
+    education_location = models.CharField(max_length=254, default='', blank=True, verbose_name='Education Location ',)
+    start_date = models.DateTimeField( verbose_name='Start Date ',default=None ,null=True ,blank=True)
+    end_date = models.DateTimeField( verbose_name='End Date ',default=None ,null=True ,blank=True)
+    def __str__(self):
+        return f'Education Settings: {self.education_name}'
+
+    class Meta:
+        verbose_name = 'Education Setting'
+        verbose_name = 'Education Settings'
+        ordering = ('start_date',)

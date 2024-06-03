@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import GeneralSetting ,ImageSetting ,Skill ,Experience
+from core.models import GeneralSetting ,ImageSetting ,Skill ,Experience ,Education
 
 
 # Create your views here.
@@ -28,6 +28,11 @@ def index(request):
 
     experiences = Experience.objects.all()
 
+#Eduxation
+
+    educations = Education.objects.all()
+
+
 
 
     context = {
@@ -42,7 +47,8 @@ def index(request):
         'home_banner_image': home_banner_image,
         'site_favicon': site_favicon,
         'skills': skills,
-        'experiences': experiences
+        'experiences': experiences,
+        'educations': educations
 
 
     }
