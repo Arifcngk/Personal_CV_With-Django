@@ -3,12 +3,7 @@ from django.db import models
 
 # Create your models here.
 
-class GeneralSetting(models.Model):
-    name = models.CharField(max_length=254, default='', blank=True, verbose_name='Name ',
-                            help_text='This is val. of the Setting')
-    description = models.CharField(max_length=254, default='', blank=True, verbose_name='Description ')
-    parameters = models.CharField(max_length=254, default='', blank=True, verbose_name='Parameter ')
-
+class AbstractModel(models.Model):
     updated_data = models.DateTimeField(
         auto_now=True,
         blank=True,
@@ -19,6 +14,18 @@ class GeneralSetting(models.Model):
         blank=True,
         verbose_name='Created Date '
     )
+    class Meta:
+        abstract = True
+
+
+
+class GeneralSetting(AbstractModel):
+    name = models.CharField(max_length=254, default='', blank=True, verbose_name='Name ',
+                            help_text='This is val. of the Setting')
+    description = models.CharField(max_length=254, default='', blank=True, verbose_name='Description ')
+    parameters = models.CharField(max_length=254, default='', blank=True, verbose_name='Parameter ')
+
+
 
     def __str__(self):
         return f'General Settings: {self.name}'
@@ -30,20 +37,11 @@ class GeneralSetting(models.Model):
        ordering = ('name',)
 
 
-class ImageSetting(models.Model):
+class ImageSetting(AbstractModel):
    name = models.CharField(max_length=254, default='', blank=True, verbose_name='Name ',)
    description = models.CharField(max_length=254, default='', blank=True, verbose_name='Description ',)
    file = models.FileField(default='', blank=True, verbose_name='Image ',upload_to='images/')
-   updated_data = models.DateTimeField(
-       auto_now=True,
-       blank=True,
-       verbose_name='Updated Date '
-   )
-   created_data = models.DateTimeField(
-       auto_now_add=True,
-       blank=True,
-       verbose_name='Created Date '
-   )
+
 
    def __str__(self):
        return f'Image Settings: {self.name}'
