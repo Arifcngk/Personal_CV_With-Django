@@ -24,6 +24,9 @@ def index(request):
     skills = Skill.objects.all().order_by('order')
 
 
+#Experience
+
+
 
     context = {
         'site_tittle': site_tittle,

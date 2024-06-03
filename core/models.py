@@ -66,3 +66,17 @@ class Skill(AbstractModel):
         verbose_name = 'Skill Setting'
         verbose_name = 'Skill Settings'
         ordering = ('order',)
+
+class Experience(AbstractModel):
+    company_name = models.CharField(max_length=254, default='', blank=True, verbose_name='Company Name ',)
+    job_tittle = models.CharField(max_length=254, default='', blank=True, verbose_name='Job Tittle ',)
+    job_location = models.CharField(max_length=254, default='', blank=True, verbose_name='Job Location ',)
+    start_date = models.DateTimeField( verbose_name='Start Date ',)
+    end_date = models.DateTimeField( verbose_name='End Date ',default=None ,null=True ,blank=True)
+    def __str__(self):
+        return f'Experience Settings: {self.company_name}'
+
+    class Meta:
+        verbose_name = 'Experience Setting'
+        verbose_name = 'Experience Settings'
+        ordering = ('start_date',)
