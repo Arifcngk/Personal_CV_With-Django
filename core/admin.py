@@ -21,3 +21,13 @@ class ImageSetting(admin.ModelAdmin):
 
     class Meta:
         model = ImageSetting
+
+
+@admin.register(Skill)
+class Skill(admin.ModelAdmin):
+    list_display = ['id', 'name', 'order', 'percentage','updated_data', 'created_data']
+    search_fields = ['name']
+    list_editable = ['name', 'order', 'percentage']
+
+    class Meta:
+        model = Skill
