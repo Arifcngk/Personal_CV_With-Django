@@ -58,3 +58,11 @@ class Skill(AbstractModel):
     name = models.CharField(max_length=254, default='', blank=True, verbose_name='Name ',
                             help_text='This is val. of the Setting')
     percentage = models.IntegerField( default=50, blank=True, verbose_name='Percentage ', validators=[MinValueValidator(1), MaxValueValidator(100)])
+
+    def __str__(self):
+        return f'Skill Settings: {self.name}'
+
+    class Meta:
+        verbose_name = 'Skill Setting'
+        verbose_name = 'Skill Settings'
+        ordering = ('order',)
