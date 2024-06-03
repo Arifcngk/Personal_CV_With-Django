@@ -71,7 +71,7 @@ class Experience(AbstractModel):
     company_name = models.CharField(max_length=254, default='', blank=True, verbose_name='Company Name ',)
     job_tittle = models.CharField(max_length=254, default='', blank=True, verbose_name='Job Tittle ',)
     job_location = models.CharField(max_length=254, default='', blank=True, verbose_name='Job Location ',)
-    start_date = models.DateTimeField( verbose_name='Start Date ',)
+    start_date = models.DateTimeField( verbose_name='Start Date ',default=None ,null=True ,blank=True)
     end_date = models.DateTimeField( verbose_name='End Date ',default=None ,null=True ,blank=True)
     def __str__(self):
         return f'Experience Settings: {self.company_name}'
