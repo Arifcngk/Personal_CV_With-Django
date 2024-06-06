@@ -51,3 +51,28 @@ class Education(admin.ModelAdmin):
 
     class Meta:
         model = Education
+
+
+
+
+@admin.register(SocialMedia)
+class SocialMedia(admin.ModelAdmin):
+    list_display = ['id', 'order', 'link', 'icon',]
+    search_fields = ['link']
+    list_editable = ['order', 'link', 'icon']
+
+    class Meta:
+        model = SocialMedia
+
+
+
+
+
+@admin.register(Document)
+class Document(admin.ModelAdmin):
+    list_display = ['id', 'slug','order', 'button_text', 'file',]
+    search_fields = ['slug']
+    list_editable = ['order', 'button_text', 'file','slug']
+
+    class Meta:
+        model = Document

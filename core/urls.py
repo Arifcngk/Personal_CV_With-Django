@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import index  # Değişiklik burada
+from .views import index ,redirect_urls # Değişiklik burada
 
 urlpatterns = [
     path('', index, name='index'),
+    path('<slug>/', redirect_urls, name='redirect_urls')
 
 ]

@@ -94,5 +94,36 @@ class Education(AbstractModel):
 
     class Meta:
         verbose_name = 'Education Setting'
-        verbose_name = 'Education Settings'
+        verbose_name_plural = 'Education Settings'
         ordering = ('start_date',)
+
+
+
+class SocialMedia(AbstractModel):
+    order = models.IntegerField(default=0,verbose_name='Order ')
+    link = models.CharField(max_length=254, default='', blank=True, verbose_name='Link ',)
+    icon= models.CharField(max_length=254, default='', blank=True, verbose_name='Icon ',)
+    def __str__(self):
+        return f'Social Media Settings: {self.link}'
+
+    class Meta:
+        verbose_name = 'Social Media Setting'
+        verbose_name_plural = 'Social Media Settings'
+        ordering = ('order',)
+
+
+
+class Document(AbstractModel):
+    order = models.IntegerField(default=0,verbose_name='Order ')
+
+    slug = models.SlugField(max_length=254, default='', blank=True, verbose_name='Slug Name ', )
+    button_text =models.CharField(max_length=254, default='', blank=True, verbose_name='Button Text ',)
+    file = models.FileField(default='', blank=True, verbose_name='Image ', upload_to='documents/')
+
+    def __str__(self):
+        return f'Document Settings: {self.slug}'
+
+    class Meta:
+        verbose_name = 'Document Setting'
+        verbose_name = 'Document Settings'
+        ordering = ('order',)
